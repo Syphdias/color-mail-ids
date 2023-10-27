@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 from sys import stdin
 import re
 
@@ -19,9 +19,11 @@ known_ids = [0 for _ in range(MAX_NUM_ID)]
 
 if __name__ == "__main__":
     # exim
-    #p = re.compile(r"([a-zA-Z0-9]{6}-[a-zA-Z0-9]{6}-[a-zA-Z0-9]{2})")
+    # p = re.compile(r"([a-zA-Z0-9]{6}-[a-zA-Z0-9]{6}-[a-zA-Z0-9]{2})")
     # exim + postfix
-    p = re.compile(r"([a-zA-Z0-9]{6}-[a-zA-Z0-9]{6}-[a-zA-Z0-9]{2}|[0-9A-F]{6,}|[0-9a-zA-Z]{12,})")
+    p = re.compile(
+        r"([a-zA-Z0-9]{6}-[a-zA-Z0-9]{6}-[a-zA-Z0-9]{2}|[0-9A-F]{6,}|[0-9a-zA-Z]{12,})"
+    )
     for line in stdin:
         ids = re.findall(p, line)
         for i in ids:
